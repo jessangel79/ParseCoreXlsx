@@ -187,6 +187,7 @@
 				3A61232524A0FECE00D7AD39 /* Frameworks */,
 				3A61232624A0FECE00D7AD39 /* Resources */,
 				04C7F4A32BAB729C1AC67EE8 /* [CP] Embed Pods Frameworks */,
+				3A61235924A11D7A00D7AD39 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -311,6 +312,23 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ParseCoreXlsxTests/Pods-ParseCoreXlsxTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
+		};
+		3A61235924A11D7A00D7AD39 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n\"${PODS_ROOT}/SwiftLint/swiftlint\"\n";
 		};
 		4295A2649EB3BF1DB5A68284 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
