@@ -17,6 +17,8 @@
 		3A61234324A0FED300D7AD39 /* ParseCoreXlsxTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A61234224A0FED300D7AD39 /* ParseCoreXlsxTests.swift */; };
 		3A61235624A1075100D7AD39 /* fichier.xlsx in Resources */ = {isa = PBXBuildFile; fileRef = 3A61235524A1075100D7AD39 /* fichier.xlsx */; };
 		3A61235724A1075100D7AD39 /* fichier.xlsx in Resources */ = {isa = PBXBuildFile; fileRef = 3A61235524A1075100D7AD39 /* fichier.xlsx */; };
+		3A7996CF24A21F90007FD4A2 /* Columns.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A7996CE24A21F90007FD4A2 /* Columns.swift */; };
+		3A7996D124A233B2007FD4A2 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A7996D024A233B2007FD4A2 /* Constants.swift */; };
 		A3B964D09798C1DDE0AC0CD3 /* Pods_ParseCoreXlsx.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A939EDEC08FDCBADD912839C /* Pods_ParseCoreXlsx.framework */; };
 /* End PBXBuildFile section */
 
@@ -44,6 +46,8 @@
 		3A61234224A0FED300D7AD39 /* ParseCoreXlsxTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParseCoreXlsxTests.swift; sourceTree = "<group>"; };
 		3A61234424A0FED300D7AD39 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3A61235524A1075100D7AD39 /* fichier.xlsx */ = {isa = PBXFileReference; lastKnownFileType = file; path = fichier.xlsx; sourceTree = SOURCE_ROOT; };
+		3A7996CE24A21F90007FD4A2 /* Columns.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Columns.swift; sourceTree = "<group>"; };
+		3A7996D024A233B2007FD4A2 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		6658F3860F3B12F6FE5C7B50 /* Pods-ParseCoreXlsxTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ParseCoreXlsxTests.release.xcconfig"; path = "Target Support Files/Pods-ParseCoreXlsxTests/Pods-ParseCoreXlsxTests.release.xcconfig"; sourceTree = "<group>"; };
 		6F9AA459B1081C8FCBAC5D08 /* Pods-ParseCoreXlsxTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ParseCoreXlsxTests.debug.xcconfig"; path = "Target Support Files/Pods-ParseCoreXlsxTests/Pods-ParseCoreXlsxTests.debug.xcconfig"; sourceTree = "<group>"; };
 		A939EDEC08FDCBADD912839C /* Pods_ParseCoreXlsx.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ParseCoreXlsx.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -115,6 +119,8 @@
 		3A61235124A1071B00D7AD39 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				3A7996CE24A21F90007FD4A2 /* Columns.swift */,
+				3A7996D024A233B2007FD4A2 /* Constants.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -383,7 +389,9 @@
 			files = (
 				3A61233024A0FECE00D7AD39 /* ViewController.swift in Sources */,
 				3A61232C24A0FECE00D7AD39 /* AppDelegate.swift in Sources */,
+				3A7996CF24A21F90007FD4A2 /* Columns.swift in Sources */,
 				3A61232E24A0FECE00D7AD39 /* SceneDelegate.swift in Sources */,
+				3A7996D124A233B2007FD4A2 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -26,10 +26,7 @@ class ViewController: UIViewController {
     
     // MARK: - Properties
     
-    var columnAStrings = [String]()
-    var columnBStrings = [String]()
-    var columnCStrings = [String]()
-    var columnDStrings = [String]()
+    var columns = Columns()
 
     // MARK: - View Life Cycle
 
@@ -59,8 +56,15 @@ class ViewController: UIViewController {
                     for cell in row.cells {
                         print(cell)
                         setColumnsFile(file: file, worksheet: worksheet)
-                        setLabels(columnAStrings, columnBStrings, columnCStrings, columnDStrings)
-                        setInfosFile(columnAStrings, columnBStrings, columnCStrings, columnDStrings)
+
+                        setLabels(Columns(columnAStrings: columns.columnAStrings,
+                                          columnBStrings: columns.columnBStrings,
+                                          columnCStrings: columns.columnCStrings,
+                                          columnDStrings: columns.columnDStrings))
+                        setInfosFile(Columns(columnAStrings: columns.columnAStrings,
+                                             columnBStrings: columns.columnBStrings,
+                                             columnCStrings: columns.columnCStrings,
+                                             columnDStrings: columns.columnDStrings))
                     }
                 }
             }
@@ -70,38 +74,54 @@ class ViewController: UIViewController {
     private func setColumnsFile(file: XLSXFile, worksheet: Worksheet) {
         do {
             let sharedStrings = try file.parseSharedStrings()
-            guard let columnA = ColumnReference("A") else { return }
-            guard let columnB = ColumnReference("B") else { return }
-            guard let columnC = ColumnReference("C") else { return }
-            guard let columnD = ColumnReference("D") else { return }
-            
-            columnAStrings = worksheet.cells(atColumns: [columnA])
+            guard let columnA = Constants.columnA else { return }
+            guard let columnB = Constants.columnB else { return }
+            guard let columnC = Constants.columnC else { return }
+            guard let columnD = Constants.columnD else { return }
+
+            columns.columnAStrings = worksheet.cells(atColumns: [columnA])
                 .compactMap { $0.stringValue(sharedStrings) }
-            columnBStrings = worksheet.cells(atColumns: [columnB])
+            columns.columnBStrings = worksheet.cells(atColumns: [columnB])
                 .compactMap { $0.stringValue(sharedStrings) }
-            columnCStrings = worksheet.cells(atColumns: [columnC])
+            columns.columnCStrings = worksheet.cells(atColumns: [columnC])
                 .compactMap { $0.stringValue(sharedStrings) }
-            columnDStrings = worksheet.cells(atColumns: [columnD])
+            columns.columnDStrings = worksheet.cells(atColumns: [columnD])
                 .compactMap { $0.stringValue(sharedStrings) }
         } catch {
             skillsTextView.text = error.localizedDescription
         }
     }
-
-    private func setLabels(_ columnAStrings: [String], _ columnBStrings: [String], _ columnCStrings: [String], _ columnDStrings: [String]) {
-        listSkillsLabel.text = columnAStrings.first
-        skillsLabel.text = columnBStrings.first
-        degreeTitleLabel.text = columnCStrings.first
-        evidenceSkillsLabel.text = columnDStrings.first
-    }
     
-    private func setInfosFile(_ columnAStrings: [String], _ columnBStrings: [String], _ columnCStrings: [String], _ columnDStrings: [String]) {
-        listSkillsTextView.text = columnAStrings[1]
-        skillsTextView.text = columnBStrings[1]
-        degreeLabel.text = columnCStrings[1]
-        evidenceSkillsTextView.text = columnDStrings[1]
+    private func setLabels(_ columns: Columns) {
+        listSkillsLabel.text = columns.columnAStrings.first
+        skillsLabel.text = columns.columnBStrings.first
+        degreeTitleLabel.text = columns.columnCStrings.first
+        evidenceSkillsLabel.text = columns.columnDStrings.first
     }
+//
+    private func setInfosFile(_ columns: Columns) {
+        listSkillsTextView.text = columns.columnAStrings[1]
+        skillsTextView.text = columns.columnBStrings[1]
+        degreeLabel.text = columns.columnCStrings[1]
+        evidenceSkillsTextView.text = columns.columnDStrings[1]
+    }
+
+//    private func setLabels(_ columnAStrings: [String], _ columnBStrings: [String], _ columnCStrings: [String], _ columnDStrings: [String]) {
+//        listSkillsLabel.text = columnAStrings.first
+//        skillsLabel.text = columnBStrings.first
+//        degreeTitleLabel.text = columnCStrings.first
+//        evidenceSkillsLabel.text = columnDStrings.first
+//    }
+
+//    private func setInfosFile(_ columnAStrings: [String], _ columnBStrings: [String], _ columnCStrings: [String], _ columnDStrings: [String]) {
+//        listSkillsTextView.text = columnAStrings[1]
+//        skillsTextView.text = columnBStrings[1]
+//        degreeLabel.text = columnCStrings[1]
+//        evidenceSkillsTextView.text = columnDStrings[1]
+//    }
 }
+
+// // // // // // // // // // // // // // // // // // // // // // // // //
 
 //  testlabel.text = "c.s : \(cs) - Reference Description : \(c.reference.description) \n \n Info A : \(columnAStrings[0]) \n Info B : \(columnBStrings[0]) \n Info C : \(columnCStrings[0]) \n Info D : \(columnDStrings[0]) \n \n A : \(columnAStrings[1]) \n B : \(columnBStrings[1]) \n C : \(columnCStrings[1]) \n D : \(columnDStrings[1]) \n \n A : \(columnAStrings[15]) \n B : \(columnBStrings[15]) \n C : \(columnCStrings[15]) \n D : \(columnDStrings[15])"
 
@@ -113,3 +133,11 @@ class ViewController: UIViewController {
 //                .flatMap { $0.cells }
 //                .map { $0.reference.description }
 //                .joined(separator: " ")
+
+//            guard let columnA = ColumnReference("A") else { return }
+//            guard let columnB = ColumnReference("B") else { return }
+//            guard let columnC = ColumnReference("C") else { return }
+//            guard let columnD = ColumnReference("D") else { return }
+
+//                        setLabels(columnAStrings, columnBStrings, columnCStrings, columnDStrings)
+//                        setInfosFile(columnAStrings, columnBStrings, columnCStrings, columnDStrings)
